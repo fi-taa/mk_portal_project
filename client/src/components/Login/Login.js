@@ -92,7 +92,7 @@ function Login(){
                         span: 32,
                       }}
                     >
-                      <Checkbox className="">Remember me</Checkbox>
+                      <Checkbox className="">Remember</Checkbox>
                     </Form.Item>
 
                     <Form.Item

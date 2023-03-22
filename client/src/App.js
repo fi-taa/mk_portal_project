@@ -8,8 +8,9 @@ function App() {
       {/* safdfasfas */}
 
     <Routes>
+    <Route path='/' element={<Home/>}/>
       <Route path='/Login' element={<Login/>}/>
-      <Route path='/' element={<Home/>}/>
+
 
      
     </Routes>
