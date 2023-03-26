@@ -1,6 +1,4 @@
-body{
-    font-size: 62.5%;
-}
+
 .Container{
     background-color: white;
     display: flex;
@@ -8,8 +6,12 @@ body{
 
 .content{
     width: 100%;
-    background-color: azure;
+    height: 109vh;
+    padding-left: 3rem;
 }
+
 .bar{
-    margin-top: 1rem;
+    position: fixed;
+    left: 0;
+    top: 2;
 }

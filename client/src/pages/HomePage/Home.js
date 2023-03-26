@@ -28,10 +28,10 @@ function Home() {
         {/* user profile */}
         <Avatar size="large" icon={<UserOutlined />} />
       </div>  
-
+      <div className="bar"> <SideBar/> </div>
 
       <div className="Container"> 
-            <div className="bar"> <SideBar/> </div>
+           
             <div className="content">
               <Routes>
                 <Route path='/chat' element={<Chat/>}/>
