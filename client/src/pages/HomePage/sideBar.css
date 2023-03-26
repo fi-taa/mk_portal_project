@@ -1,0 +1,61 @@
+body{
+    font-size: 62.5%;
+}
+.avatar {
+    width:3rem;
+    height: 3rem;
+}
+
+.sidebar{
+    display: flex;
+}
+
+.SidebarWrapper{
+    width: 100%;
+    background-color: black;
+    height: 96vh;
+}
+
+.TopSidebar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: red;
+    margin-bottom: 2rem;
+}
+
+.hamburger{
+    padding-top: 1rem;
+    font-size: 2rem;
+    text-align: center;
+}
+.sidebarLink{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.3rem;
+    border: 0.1rem solid black;
+    padding: 0 1rem;
+}
+.sidebarLink:hover{
+    background-color: blue;
+    color: white;
+    transition: all 0.2s;
+}
+.active{
+    background-color: blue;
+    color: white;
+}
+
+.sidebaricon{
+    padding: 0.2rem;
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+}
+.sidebarname{
+    padding: 0.2rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-decoration: none;
+}

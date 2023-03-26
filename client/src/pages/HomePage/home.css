@@ -1,0 +1,15 @@
+body{
+    font-size: 62.5%;
+}
+.Container{
+    background-color: white;
+    display: flex;
+}
+
+.content{
+    width: 100%;
+    background-color: azure;
+}
+.bar{
+    margin-top: 1rem;
+}
