@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar } from "antd";
-import { UserOutlined , MenuFoldOutlined } from "@ant-design/icons";
+import { UserOutlined  } from "@ant-design/icons";
 import {Routes , Route } from "react-router-dom";
 import SideBar from "./SideBar";
 import Chat from "../chats/chat";
@@ -9,19 +9,20 @@ import History from "../history/history";
 import Post from "../post/post";
 import Report from "../report/report";
 import "./home.css"
+import Feeds from "./Feeds";
 
 function Home() {
   return (
     <>
-    <div className="">
+    <div className="relative">
       {/* nav bar section */}
-      <div className="bg-sky-500 flex justify-between h-16 w-full place-content-center items-center px-2 pl-20">
+      <div className="bg-blue-400/90 shadow-sm shadow-black/30 fixed top-0 left-0 right-0  flex justify-between h-12 w-full place-content-center items-center px-2 ">
         {/* logo */}
         <div className="bg-gray-100 rounded-full w-10 h-10 ">
           <img src="/mk.jpg" alt="" className="rounded-full" />
         </div>
         {/* Name */}
-        <span className="bg-white text-blue-500 flex justify-center font-bold p-1 h-8">
+        <span className=" text-white flex justify-center font-bold p-1 h-8">
           ማህበረ ቅዱሳን Portal
         </span>
 
@@ -32,9 +33,10 @@ function Home() {
 
       <div className="Container"> 
            
-            <div className="content">
+            <div className="p-16 w-full h-[110vh] ">
               <Routes>
-                <Route path='/chat' element={<Chat/>}/>
+              <Route path='/home' element={<Feeds/>}/>
+              <Route path='/chat' element={<Chat/>}/>
                 <Route path='/events' element={<Events/>}/>
                 <Route path='/history' element={<History/>}/>
                 <Route path='/post' element={<Post/>}/>

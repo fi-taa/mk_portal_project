@@ -7,11 +7,12 @@
 .content{
     width: 100%;
     height: 109vh;
-    padding-left: 3rem;
+    padding: 4rem;
+ 
 }
 
 .bar{
     position: fixed;
     left: 0;
-    top: 2;
+    top: 3;
 }
