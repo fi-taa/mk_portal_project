@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { MenuFoldOutlined } from "@ant-design/icons";
 import "./sideBar.css"
 // import { FaBars } from "react-icons/fa";
-import sidebarmenu from "../../components/data/sidebarMenu/sideBarMenu";
+import sidebarmenu from "../data/sidebarMenu/sideBarMenu";
 function SideBar(){
     const [open, setOpen] = useState(false);
     return ( 
