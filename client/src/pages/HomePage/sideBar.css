@@ -1,61 +1,59 @@
-body{
-    font-size: 62.5%;
-}
-.avatar {
-    width:3rem;
-    height: 3rem;
-}
 
-.sidebar{
-    display: flex;
-}
+
+
+
 
 .SidebarWrapper{
     width: 100%;
-    background-color: black;
-    height: 96vh;
+    height: 70vh;
+    background: rgb(0, 145, 255) !important;
+    opacity: 80%;
+
 }
 
 .TopSidebar{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: red;
-    margin-bottom: 2rem;
+  justify-content: right;
 }
 
 .hamburger{
-    padding-top: 1rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
+    width: 100%;
+   
+}
+.hamburger:hover{
+    background: rgb(71, 141, 255);
+    border-radius: 100%;
 }
 .sidebarLink{
     display: flex;
-    gap: 1rem;
-    margin-bottom: 0.3rem;
-    border: 0.1rem solid black;
-    padding: 0 1rem;
+   justify-content: space-around;
+   align-items: center;
+   gap:1;
 }
 .sidebarLink:hover{
-    background-color: blue;
+    background-color: rgb(0, 115, 255);
     color: white;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 .active{
-    background-color: blue;
+    background-color: rgb(0, 115, 255);
     color: white;
 }
 
 .sidebaricon{
+    flex: 1;
     padding: 0.2rem;
-    font-size: 2rem;
-    text-decoration: none;
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
     color: white;
 }
 .sidebarname{
+    flex: 4;
     padding: 0.2rem;
     color: white;
-    font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 1rem;
+    font-weight: 400;
     text-decoration: none;
 }

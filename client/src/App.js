@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="">
       {/* safdfasfas */}
-
+      
     <Routes>
       <Route path='/' element={<Home/>}/> 
       <Route path = "pages/*" element={<Home/>}/>
