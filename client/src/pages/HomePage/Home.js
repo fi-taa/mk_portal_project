@@ -3,7 +3,7 @@ import { Avatar } from "antd";
 import { UserOutlined  } from "@ant-design/icons";
 import {Routes , Route , NavLink} from "react-router-dom";
 import SideBar from "./SideBar";
-import Chat from "../chats/chat";
+import Chat from "../chat/chat";
 import Events from "../events/event";
 import History from "../history/history";
 import Post from "../post/post";

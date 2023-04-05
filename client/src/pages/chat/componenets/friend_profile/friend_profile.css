@@ -1,0 +1,86 @@
+.friendProfileWrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.friendProfileUpper{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.247);
+    gap:0.5rem;
+}
+.PersonLocation{
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.366);
+    padding-bottom: 1rem;
+}
+.personName{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.friendProfileCenter{
+    flex: 3;
+}
+.friendProfileLower{
+    flex: 6;
+}
+
+.personImg{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100rem;
+}
+
+.friendProfileCenter{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.Label{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.Info{
+    font-size: 0.8rem;
+    padding-left: 0.5rem;
+    color: rgb(0, 0, 0);
+}
+
+.friendProfileLower{
+    margin-top: 0.4rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.media{
+    margin: 1rem;
+    display: flex;
+    gap:1rem;
+    align-items: center;
+}
+
+.centerProfile{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 29rem;
+    /* margin: 0 0.4rem; */
+}
+
+.information{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.friendProfileLower{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

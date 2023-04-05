@@ -1,0 +1,114 @@
+body{
+    font-size: 62.5%;
+}
+.friendsList{
+
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: 0.5rem;
+    padding: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: all 0.6s;
+}
+
+
+
+.FriendBoxUpper{
+    display: flex;
+    height: max-content;
+}
+.FriendPhoto{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 15rem;
+}
+
+.FriendBoxUpperLeft{
+    flex: 1;
+    align-items: center;
+    gap: 1rem;
+    /* background-color: blue; */
+}
+.FriendBoxUpperLeft{
+    display: flex;
+    align-items: start;
+
+}
+.FriendBoxUpperBottom{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.FriendBoxUpperTop{
+    display: flex;
+    position: relative;
+}
+.FriendInfo{
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.415);
+    display: flex;
+    gap: 1rem;
+}
+.FriendName{
+    font-size: 1rem;
+    font-weight: bolder;
+}
+.FriendBoxUpperRight{
+    display: flex;
+    justify-content: end;
+    height: 2rem;
+    align-items: center;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.415);
+}
+
+.FriendUpperIcons{
+   width: 1.5rem;
+   height: 1.5rem;
+}
+
+.leatestMessage{
+    padding-left: 0.5rem;
+    font-size: 0.8rem;
+    position: relative;
+}
+
+.messageCount{
+    width: 2rem;
+    height: 2rem;
+    background-color:  #0caeff4a ;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: 600;
+    position: absolute;
+    top:0;
+    right: 0;
+    transform: translate(0,-20%)
+}
+
+.FriendOnlineStatus{
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 6rem;
+    background-color: rgb(28, 226, 28);
+    position: absolute;
+    bottom:0.1rem;
+    right: 0.1rem;
+    border: 0.1rem solid rgba(0, 128, 0, 0.507);
+}
+
+.FriendOnlineInfo{
+    font-size: 0.8rem;
+    padding-top: 0.3rem;
+}
+
+.friendsList:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgba(0, 0, 0, 0.063);
+}
+
