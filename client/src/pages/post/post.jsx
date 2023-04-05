@@ -1,52 +1,82 @@
-import React, { useState } from "react";
-import { MenuFoldOutlined } from "@ant-design/icons";
-import { data } from "../data/FeedsData/FeedData";
-import { Image } from "antd";
+import React, { useEffect, useState } from 'react';
+import { Card, Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import SharePost from './SharePost';
 
-function Post() {
-  const [posts, setPosts] = useState(data);
+const { Meta } = Card;
+
+const PostList = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    // Dummy data array
+    const dummyData = [
+      {
+        id: 1,
+        title: 'My first post',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        media: { type: 'image', url: 'https://www.corpgov.net/wp-content/uploads/2009/12/links.jpeg' }
+      },
+      {
+        id: 2,
+        title: 'My second post',
+        body: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        media: { type: 'video', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' }
+      },
+      {
+        id: 3,
+        title: 'My third post',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        media: null
+      },
+    ];
+
+    setPosts(dummyData);
+  }, []);
+
+  const renderMedia = (media) => {
+    if (media && media.type === 'image') {
+      return <img src={media.url} alt="Post media" className="w-full object-cover" />;
+    } else if (media && media.type === 'video') {
+      return (
+        <div className="flex flex-col w-full h-40">
+          <iframe
+            title="Post media"
+            className="flex justify-center w-full h-40"
+            src={media.url}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          ></iframe>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  };
+
   return (
-    <>
-      {posts.map((item, index) => (
-        <div
-          key={index}
-          className="my-4  bg-white w-full h-[500px] border border-solid rounded-lg border-neutral-200 shadow-md overflow-hidden "
-        >
-          {/* post headline/nav */}
-         
-            <div className="flex justify-around items-center place-content-center bg-blue-200 h-10">
-              <div className="flex px-1 gap-4 bg-blue-200 w-full  items-center">
-                  <img
-                    src={item.deptImg}
-                    alt=""
-                    className="rounded-full w-9 h-9"
-                  />
-                <div>{item.deptName}</div>
-              </div>
-              <div className="font-[2rem] text-center w-1/5 hover:text-sky-500 flex justify-end  ">
-                <MenuFoldOutlined />
-              </div>
-            </div>
-              <div
-                className="flex gap-2 justify-center z-0 w-full h-40  object-cover px-2 tansition-transform duration-1000"
-              >
-              <Image
-              src={item.PostImg}
-              className="!w-full !object-cover !h-40 z-5 "
-        
-            />
-           
-            </div>
-                <hr className="font-bold my-2"/>
-              
-            <div className=" flex h-96 w-full p-3 overflow-y-scroll">
-              <span>{item.description}</span>
-            </div>
-          </div>
-        
-      ))}
-    </>
-  );
-}
+    <div className="flex flex-col items-center space-y-4">
+      <SharePost />
+      {posts.map((post) => (
+        <Card key={post.id} className="w-full max-w-lg">
+          <Meta 
+            avatar={<Avatar icon={<UserOutlined />} />}
+            title={post.title}
+            description={post.body.split('\n').map((text, index) => (
+              <span key={index}>
+                {text}
+                <br />
+              </span>
+            ))}
+          />
+          <div className='p-2'>
 
-export default Post;
+          </div>
+          {renderMedia(post.media)}
+        </Card>
+      ))}
+    </div>
+  );
+};
+
+export default PostList;

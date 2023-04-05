@@ -12,9 +12,7 @@ function Feeds() {
   }
   return (
     <>
-    <div >
-    <SharePost/>
-    </div>
+  
     <hr className="my-2 " />
     <div className="bg-blue-50 max-h-max p-3">
       <Post/>
