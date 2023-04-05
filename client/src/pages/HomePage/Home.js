@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar } from "antd";
 import { UserOutlined  } from "@ant-design/icons";
-import {Routes , Route } from "react-router-dom";
+import {Routes , Route , NavLink} from "react-router-dom";
 import SideBar from "./SideBar";
 import Chat from "../chats/chat";
 import Events from "../events/event";
@@ -11,12 +11,14 @@ import Report from "../report/report";
 import "./home.css"
 import Feeds from "./Feeds";
 
+
 function Home() {
+ 
   return (
     <>
     <div className="relative">
       {/* nav bar section */}
-      <div className="bg-blue-400/90 shadow-sm shadow-black/30 fixed top-0 left-0 right-0  flex justify-between h-12 w-full place-content-center items-center px-2 ">
+      <div className="bg-blue-400/90 shadow-sm shadow-black/30 fixed  top-0 left-0 right-0  flex justify-between h-12 w-full place-content-center items-center px-2 z-0">
         {/* logo */}
         <div className="bg-gray-100 rounded-full w-10 h-10 ">
           <img src="/mk.jpg" alt="" className="rounded-full" />
@@ -27,13 +29,16 @@ function Home() {
         </span>
 
         {/* user profile */}
-        <Avatar size="large" icon={<UserOutlined />} />
-      </div>  
+        <NavLink to={`/pages/profile`} className="rounded-full">
+        <Avatar   size="large" icon={<UserOutlined />} />
+        </NavLink>
+      </div>
+      
       <div className="bar"> <SideBar/> </div>
-
-      <div className="Container"> 
+    
+      <div className="Container flex justify-center"> 
            
-            <div className="p-16 w-full h-[110vh] ">
+            <div className="p-16 w-full md:2/3 h-[110vh] ">
               <Routes>
               <Route path='/home' element={<Feeds/>}/>
               <Route path='/chat' element={<Chat/>}/>

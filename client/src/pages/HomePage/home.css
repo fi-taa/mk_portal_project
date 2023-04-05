@@ -16,3 +16,12 @@
     left: 0;
     top: 3;
 }
+
+.input{
+    border-style: hidden;
+}
+
+.imgtransaction{
+    transition: all 0.4s;
+    
+}

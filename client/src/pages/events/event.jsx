@@ -1,6 +1,7 @@
 const Events = () => {
     return ( 
-        <div> Events </div>
+        <div> Events
+             </div>
      );
 }
  
