@@ -36,7 +36,7 @@ const loginUser = async (req,res)=> {
        } 
 
        else{
-         return res.status(200).json("Login Successfully");
+         return res.status(200).json(currentUser);
        }
 
     }

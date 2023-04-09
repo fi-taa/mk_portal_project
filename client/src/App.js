@@ -1,19 +1,19 @@
 import './App.css';
 import Login from './pages/Login/Login';
-import { Routes,Route } from 'react-router-dom';
+import { Routes,Route, Navigate } from 'react-router-dom';
 import Home from './pages/HomePage/Home';
+import { AuthContext } from "./context/authContext";
+import { useContext } from "react";
+
 function App() {
+  const {userData} = useContext(AuthContext);
   return (
-    <div className="">
-      {/* safdfasfas */}
-      
-    <Routes>
-      <Route path='/' element={<Home/>}/> 
-      <Route path = "pages/*" element={<Home/>}/>
-      <Route path='/Login' element={<Login/>}/>
-    </Routes>
-    </div>
+          <Routes>
+            <Route exact path="/" element={userData? <Home/> : <Login/>}/>
+            <Route path="/login" element={ userData? <Navigate to="/" replace={true} />: <Login/> }/>
+            <Route path="pages/*" element={<Home/>}></Route>
+          </Routes>
+    
   );
 }
-
 export default App;

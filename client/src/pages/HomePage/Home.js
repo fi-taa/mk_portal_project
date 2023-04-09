@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Avatar } from "antd";
 import { UserOutlined  } from "@ant-design/icons";
-import {Routes , Route , NavLink} from "react-router-dom";
+import {Routes , Route , NavLink, Navigate} from "react-router-dom";
 import SideBar from "./SideBar";
 import Chat from "../chat/chat";
 import Events from "../events/event";
@@ -10,10 +10,11 @@ import Post from "../post/post";
 import Report from "../report/report";
 import "./home.css"
 import Feeds from "./Feeds";
+import { AuthContext } from "../../context/authContext";
 
 
 function Home() {
- 
+  const {userData} = useContext(AuthContext);
   return (
     <>
     <div className="relative">
@@ -40,13 +41,13 @@ function Home() {
            
             <div className="p-16 w-full md:2/3 h-[110vh] ">
               <Routes>
-              <Route path='/home' element={<Feeds/>}/>
-              <Route path='/chat' element={<Chat/>}/>
-                <Route path='/events' element={<Events/>}/>
-                <Route path='/history' element={<History/>}/>
-                <Route path='/post' element={<Post/>}/>
-                <Route path='/report' element={<Report/>}/>
-            </Routes>
+                <Route path="/" element={userData? <Feeds/>: <Navigate to="/login" replace={true} />}/>
+                <Route path="/chat" element={userData? <Chat/> : <Navigate to="/login" replace={true} /> }/>
+                <Route path="/events" element={userData? <Events/> : <Navigate to="/login" replace={true} />}/>
+                <Route path="/history" element={userData? <History/>: <Navigate to="/login" replace={true} />}/>
+                <Route path="/post" element={userData? <Post/> : <Navigate to="/login" replace={true} />}/>
+                <Route path="/report" element={userData? <Report/> : <Navigate to="/login" replace={true} />}/>
+              </Routes>
             </div>
         </div> 
     </div>

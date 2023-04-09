@@ -56,7 +56,7 @@ export const Friends = ({cur_conversation,currentUser,onlineUser}) => {
 }
  
 
-export const FriendsChatBoxTop = ({friendId,onlineUser}) => {
+export const FriendsChatBoxTop = ({friendId,onlineUser,currentUser}) => {
     const [user, setUser] = useState()
     useEffect(()=>{
         const getUser = async ()=>{
@@ -73,7 +73,8 @@ export const FriendsChatBoxTop = ({friendId,onlineUser}) => {
         }
         getUser();
     },[friendId]);
-
+    console.log(user)
+    console.log("now",currentUser)
     return ( 
         <div className="chatBoxUpper">
                 <div className="chatBoxUpperLeft">
@@ -85,7 +86,7 @@ export const FriendsChatBoxTop = ({friendId,onlineUser}) => {
                         
                         <div className="chatBoxUpperLeftRight">
                             <div className="upperPart"> 
-                                <span className="Name"> {user?.username} </span> 
+                                <span className="Name"> {user ? user?.username : currentUser.username } </span> 
                             </div>
                             <div className="friendInfo">
                                 <span className="OnlineInfo"> {getUser(friendId,onlineUser)? "online" :"offline"} </span>

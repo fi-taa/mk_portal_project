@@ -118,7 +118,7 @@ const Chat = () => {
             </div>
         </div>
         <div className="chatBox">
-           <FriendsChatBoxTop friendId={friend} onlineUser={onlineFriends}/>
+           <FriendsChatBoxTop friendId={friend} onlineUser={onlineFriends} currentUser={userData}/>
            
            <div className="chatBoxCenter">
                 {messages.map((curMessage,index)=>{

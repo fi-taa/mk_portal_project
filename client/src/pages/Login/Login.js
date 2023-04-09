@@ -1,33 +1,29 @@
 import { Button, Checkbox, Form, Input ,Image} from "antd";
-// import { useState } from "react";
+import { useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { AuthContext } from "../../context/authContext";
+import { LoginApiCall } from "../../api_requests/loginApiCall";
 
 
 
 function Login(){
-      const navigate = useNavigate()
-
+      const {userData,loading , error , dispatch} = useContext(AuthContext);
       // function handClick(){ navigate("/")}
-      const onFinish = async (values) => {
-        try{
-          const res= await axios.post("http://localhost:5000/auth/login" , values);
-          navigate("/")
-          console.log(res.data);
-        }
-        catch(err){
-          console.log(err.response.data);
-        }
+      const onFinish = (values) => {
+          try{
+            console.log(values)
+            LoginApiCall(values, dispatch);
+  
+          }
+          catch(err){
+            console.log("err")
+          }
       };
       
       const onFinishFailed = (errorInfo) => {
         console.log("error");
-      }
-
-
-
-      
+      }   
       return(
 
             <div className="flex flex-col md:flex-row">
