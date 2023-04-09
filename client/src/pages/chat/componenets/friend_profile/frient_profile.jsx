@@ -2,13 +2,31 @@ import { AiOutlineGif, AiOutlineLink, AiTwotoneFileText } from "react-icons/ai";
 import { BsCameraVideo, BsCardImage } from "react-icons/bs";
 import { MdOutlineSettingsVoice } from "react-icons/md";
 import "./friend_profile.css"
-const FriendProfile = () => {
+import { useEffect, useState } from "react";
+import axios from "axios";
+const FriendProfile = ({friendId}) => {
+    const [user, setUser] = useState()
+    useEffect(()=>{
+        const getUser = async ()=>{
+            if (friendId){
+
+                try{
+                    const res = await axios.get("http://localhost:8800/auth/"+friendId);
+                    setUser(res.data);
+                }
+                catch(err){
+                    console.log(err);
+                }
+            }
+        }
+        getUser();
+    },[friendId]);
     return ( 
         <div className="friendProfile">
             <div className="friendProfileWrapper">
                 <div className="friendProfileUpper">
-                    <img className="personImg" src="/assets/profile-2.jpg" alt="" />
-                    <span className="personName"> Daniel Tilahun</span>
+                    <img className="personImg" src={`/assets/${user?.username}.avif`} alt="" />
+                    <span className="personName"> {user?.username}</span>
                     <span className="PersonLocation"> Addis Abeba </span>
                 </div>
                 <div className="centerProfile">

@@ -22,6 +22,7 @@ body{
     width: 3rem;
     height: 3rem;
     border-radius: 15rem;
+    object-fit: cover;
 }
 
 .FriendBoxUpperLeft{
@@ -32,7 +33,7 @@ body{
 }
 .FriendBoxUpperLeft{
     display: flex;
-    align-items: start;
+    align-items: flex-start;
 
 }
 .FriendBoxUpperBottom{
@@ -56,7 +57,7 @@ body{
 }
 .FriendBoxUpperRight{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     height: 2rem;
     align-items: center;
     margin-right: 0.5rem;
@@ -92,6 +93,10 @@ body{
 }
 
 .FriendOnlineStatus{
+    display: none;
+}
+.FriendOnlineStatus.online{
+    display: block;
     width: 0.8rem;
     height: 0.8rem;
     border-radius: 6rem;
@@ -101,6 +106,7 @@ body{
     right: 0.1rem;
     border: 0.1rem solid rgba(0, 128, 0, 0.507);
 }
+
 
 .FriendOnlineInfo{
     font-size: 0.8rem;

@@ -4,11 +4,12 @@ font-size: 62.5%;
 
 .message {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     flex-direction: column;
+    position: relative;
 }
 .message.own{
-    align-items: end;
+    align-items: flex-end;
 }
 .bubble.own{
     background-color: #0caeff4a ;
@@ -31,4 +32,33 @@ font-size: 62.5%;
     right: 2rem;
     bottom: 0.3rem;
     color: rgba(128, 128, 128, 0.548);
+}
+
+.operation{
+    display: flex;
+    flex-direction: column;
+    max-width: 20rem ;
+    background-color:  rgba(128, 128, 128, 0.548);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-40%,50%);
+}
+
+.operation button{
+    border: 0;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+}
+
+.operation button:hover{
+    background-color: #fff;
+    cursor: pointer;
+    color: black;
 }
