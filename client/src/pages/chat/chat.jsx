@@ -1,4 +1,4 @@
-import { BsEmojiLaughing, BsSearch, BsSend} from "react-icons/bs";
+import { BsCheckLg, BsEmojiLaughing, BsSearch, BsSend} from "react-icons/bs";
 import {ImAttachment} from "react-icons/im";
 import {AiFillAudio} from "react-icons/ai";
 import axios from "axios"
@@ -39,7 +39,7 @@ const Chat = () => {
     },[comingMessage,chat])
 
     useEffect(()=>{
-        socket.current.emit("addUser",userData?._id);
+        socket.current.emit("addUser",userData?.id);
         socket.current.on("getUser",user=>{
             setOnlineFriends(user);
         })
@@ -48,12 +48,22 @@ const Chat = () => {
     
 
     useEffect(()=>{
+        
         const getCurrentUserConversation = async ()=>{
-            const res = await axios.get("http://localhost:8800/conversation/"+userData._id);
-            setConversation(res.data);
+            
+            try{
+                console.log("idddddddddddddddddddddd",userData.id)
+                const res = await axios.get("http://localhost:8800/conversation/"+userData.id);
+                setConversation(res.data);
+                console.log(conversation);
+            }
+            catch(err){
+                console.log("err",err)
+            }
+            
         }
         getCurrentUserConversation()
-    },[userData._id])
+    },[userData.id])
 
 
 
@@ -95,7 +105,7 @@ const Chat = () => {
     useEffect(()=>{
         scrollRef.current?.scrollIntoView({ behavior: "smooth" ,block: 'nearest', inline: 'start'});
     },[messages]);
-
+    console.log("dfgsfg",conversation,chat)
     return ( 
     <div className="chat">
         <div className="chatMenu">
@@ -107,9 +117,10 @@ const Chat = () => {
                 <div className="peopleList">
                     {conversation.map((cur,index)=>(
                         <div onClick={()=> {
-                            const friendId = cur.members.find((memebrId)=> memebrId!==userData?._id);
+                            const friendId = cur.members.find((memebrId)=> memebrId!==userData?.id);
                             setChat(cur)
                             setFriend(friendId);
+                           console.log("gggggg",chat,friendId)
                             }} key={index}>
                             <Friends cur_conversation ={cur} currentUser={userData} onlineUser= {onlineFriends}/>
                         </div>
@@ -124,7 +135,8 @@ const Chat = () => {
                 {messages.map((curMessage,index)=>{
                     return (
                     <div ref={scrollRef} key={index}>
-                        <Message own={curMessage.sender===userData?._id} curmessage={curMessage} />
+
+                        <Message own={curMessage.sender===userData?.id} curmessage={curMessage} />
                     </div>
                     )
                 })}

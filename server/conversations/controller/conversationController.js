@@ -14,7 +14,7 @@ const createConversation = async (req,res)=>{
 
 
 const getConversation = async (req,res)=>{
-
+    console.log("here",req.params.userId)
     try{
         const conversation = await Conversation.find({ members:{$in:[req.params.userId]}});
         console.log(conversation);

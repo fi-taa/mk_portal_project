@@ -9,7 +9,8 @@ const getUser = (friendId,onlineUser)=>{
 }
 
 export const Friends = ({cur_conversation,currentUser,onlineUser}) => {
-    const friendId = cur_conversation?.members.find((memebrId)=> memebrId!==currentUser?._id);
+    console.log(cur_conversation,currentUser,onlineUser)
+    const friendId = cur_conversation?.members.find((memebrId)=> memebrId!==currentUser?.id);
     const [user, setUser] = useState()
     useEffect(()=>{
         const getUser = async ()=>{
@@ -57,6 +58,7 @@ export const Friends = ({cur_conversation,currentUser,onlineUser}) => {
  
 
 export const FriendsChatBoxTop = ({friendId,onlineUser,currentUser}) => {
+
     const [user, setUser] = useState()
     useEffect(()=>{
         const getUser = async ()=>{

@@ -79,7 +79,7 @@ function Login(){
                       <Input.Password />
                     </Form.Item>
 
-                    <Form.Item
+                    {/* <Form.Item
                       className=""
                       name="remember"
                       valuePropName="checked"
@@ -89,7 +89,7 @@ function Login(){
                       }}
                     >
                       <Checkbox className="">Remember</Checkbox>
-                    </Form.Item>
+                    </Form.Item> */}
 
                     <Form.Item
                       wrapperCol={{

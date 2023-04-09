@@ -5,28 +5,11 @@ const JWT = require("jsonwebtoken");
 const Token = require("../../Refreshtoken/tokenSchema");
 var Tokens = [];
 
-const registerUser = async (req, res)=> {
-    const salt = await bcrypt.genSalt(saltRounds);
-    const hashedPassword = await bcrypt.hash(req.body.password,salt)
 
-    try{
-        const newuser = new User({
-            username: req.body.username,
-            password : hashedPassword,
-            email: req.body.email,
-            isAdmin:req.body.isAdmin
-        })
-
-        await newuser.save();
-        return res.status(200).json(newuser);
-    }
-    catch(err){
-        return res.status(400).json(err);
-    }
-}
 
 const generateAccessToken = (user)=>{
     return JWT.sign(user,process.env.JWT_SECRET ,{expiresIn:"30s"});
+    
 }
 
 const generateRefreshToken = (user)=>{
@@ -36,8 +19,9 @@ const generateRefreshToken = (user)=>{
 
 
 const loginUser = async (req,res)=> {
-    
+    console.log(req.body)
     try{
+        console.log(req.body)
        const  currentUser = await User.findOne({ username : req.body.username});
        if (!currentUser) {
             return res.status(404).json("User Not Found");
@@ -49,11 +33,14 @@ const loginUser = async (req,res)=> {
          return res.status(404).json("incorrect password please try with correct password!!!");
        } 
        else{
+       console.log("curr",currentUser)
         const user = {id: currentUser._id , isAdmin:currentUser.isAdmin};
         const accessToken = generateAccessToken(user);
         const refreshToken = generateRefreshToken(user);
+        console.log(accessToken,refreshToken);
         Tokens.push(refreshToken);
         return res.status(200).json({
+            id: currentUser._id,
             username: currentUser.username,
             isAdmin:currentUser.isAdmin
             ,accessToken, 
@@ -139,4 +126,4 @@ const logout = (req,res)=>{
     res.status(200).send("You loged out successfully");
 }
 
-module.exports = {loginUser , registerUser , getUser,deleteUser , varify , refreshTokenRequest }
+module.exports = {loginUser  , getUser,deleteUser , varify , refreshTokenRequest }

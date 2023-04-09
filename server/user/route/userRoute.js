@@ -2,7 +2,6 @@ const express = require("express");
 const userController = require("../controller/userController")
 router = express.Router();
 
-router.post("/register" , userController.registerUser);
 router.post("/login" , userController.loginUser);
 router.post("/refresh" , userController.refreshTokenRequest);
 router.get("/:userId" , userController.getUser);

@@ -4,6 +4,8 @@ import {CiEdit} from "react-icons/ci";
 import {MdDeleteOutline} from "react-icons/md";
 import { format } from "timeago.js";
 const Message = ({own ,curmessage}) => {
+    console.log("qqqqqqqqqq",own,curmessage);
+
     const [openMenu,setOpenMenu] = useState(false);
     const handleClick = (e) => {
         e.preventDefault();
