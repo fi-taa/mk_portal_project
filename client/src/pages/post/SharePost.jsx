@@ -16,8 +16,7 @@ const SharePost = () => {
   };
 
   const handleSubmit = () => {
-    // Make a POST request to your backend API using Axios or Fetch
-    // with the postText and fileList data
+    
   };
 
   return (

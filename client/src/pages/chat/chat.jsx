@@ -64,14 +64,8 @@ const Chat = () => {
           </div>
         </div>
         <div className="flex-1 px-4 py-2 overflow-y-auto">
-          <Message own={false} />
           <Message own={true} />
-          <Message />
-          <Message own={true} />
-          <Message />
-          <Message own={true} />
-          <Message />
-          <Message own={true} />
+         
         </div>
         <div className="bg-gray-100 py-3 px-4">
           <div className="flex items-center space-x-3">
